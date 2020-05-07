@@ -1,0 +1,65 @@
+body{
+font-family: Monotype Corsiva;
+background-image:url("sky.jpg");
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-color: rgba(255,255,255,0.5);
+background-blend-mode:lighten;
+background-size:100% 100%;
+}
+
+.container{
+  color:rgb(179, 146, 97);
+  font-size:22px;
+  text-align:center;
+}
+
+ul {
+  list-style:none;
+  padding:0;
+}
+li{
+  margin-left:80%;
+  text-align:center;
+}
+.nav-item > a{
+  color:rgb(179, 150, 108);
+  font-size:60px;
+  text-decoration:none;
+}
+
+/* Register */
+.card-header{
+  color:rgb(206, 171, 120);
+  margin:50px auto 30px auto;
+  font-size:45px;
+}
+
+.form-group.row{
+  margin-bottom:10px;
+}
+
+input{
+  color:rgb(179, 150, 108);
+  border-radius:20px;
+  outline:none;
+}
+
+.btn{
+  font-family: Monotype Corsiva;
+  width:70px;
+  color:rgb(179, 150, 108);
+  border:solid 2px;
+  border-color:rgb(179, 150, 108);
+  border-radius:10px;
+  background-color:white;
+  cursor:pointer;
+  outline:none;
+}
+
+.btn.btn-link {
+  padding:4px;
+  border-radius:30px;
+  font-size:15px;
+  text-decoration:none;
+}

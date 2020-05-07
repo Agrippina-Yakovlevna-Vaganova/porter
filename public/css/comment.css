@@ -1,0 +1,58 @@
+body{
+  font-family: Monotype Corsiva;
+  background-image:url("sky.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: rgba(255,255,255,0.8);
+  background-blend-mode:lighten;
+  background-size:100% 100%;
+  }
+
+h1{
+text-align:center;
+font-size:50px;
+}
+.comment{
+  margin:0 auto;
+  width:70%;
+  height:50%;
+  border: 5px solid;
+  border-radius:10px;
+  border-color: rgb(233, 188, 129);
+  color:rgb(233, 188, 129);
+  background:rgb(255, 255, 255,0.6);
+}
+form{
+  margin:auto;
+}
+textarea{
+  display:block;
+  margin:0 auto 30px auto;
+  color:rgb(231, 206, 160);
+  border:solid 3px;
+  border-color:rgb(233, 188, 129);
+  border-radius:5px;
+  font-size:20px;
+  outline:none;
+  font-weight:bold;
+  min-width:80%;
+  min-height:200px;
+  max-width: 90%;
+  max-height:90%;
+}
+
+input{
+  font-family: Monotype Corsiva;
+  font-size:18px;
+  display:block;
+  height:30px;
+  width:100px;
+  margin:0 auto 10px auto;
+  color:rgb(233, 188, 129);
+  border:solid 4px;
+  border-radius: 5px;
+  border-color:rgb(233, 188, 129);
+  background-color:white;
+  cursor:pointer;
+  outline:none;
+}
