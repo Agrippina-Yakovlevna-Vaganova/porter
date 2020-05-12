@@ -1,6 +1,5 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+
 error_reporting(E_ALL);
 
 require('good_function.php');
@@ -17,7 +16,7 @@ $many=[];
 <head>
   <meta charset="UTF-8">
   <title>Login</title>
-  <link rel="stylesheet" href="<?php echo e(asset('css/home.css')); ?>">
+  <link rel="stylesheet" href="<?php echo e(secure_asset('css/home.css')); ?>">
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/7583396cb7.js" crossorigin="anonymous"></script>
 </head>
@@ -91,7 +90,7 @@ unset($__errorArgs, $__bag); ?>
        <p>Name:<?php echo e($item->name); ?></p>
 
        <?php if(Auth::check() && $user->name === $item->name): ?>
-        <a href="delete/<?php echo e($item->id); ?>"><img class="trash" src="<?php echo e(asset('images/trash.jpg')); ?>" alt=""></a>
+        <a href="delete/<?php echo e($item->id); ?>"><img class="trash" src="<?php echo e(secure_asset('images/trash.jpg')); ?>" alt=""></a>
        <?php endif; ?>
 
        <p>Title:<?php echo e($item->title); ?></p>
@@ -131,7 +130,7 @@ unset($__errorArgs, $__bag); ?>
       ?> 
 
       <?php if($item->name !== "deleted"): ?>
-       <img src="<?php echo e(asset($paths[0])); ?>" alt="" width="90%" height="300px" class="<?php echo e($id); ?>">
+       <img src="<?php echo e(secure_asset($paths[0])); ?>" alt="" width="90%" height="300px" class="<?php echo e($id); ?>">
        <p><span class="sheets">1</span><?php echo "/" . $num?></p>
 
        <div class="nextprev">
@@ -201,7 +200,7 @@ unset($__errorArgs, $__bag); ?>
   </form>
 </div>
 
-<script src="<?php echo e(asset('js/home.js')); ?>"></script>
+<script src="<?php echo e(secure_asset('js/home.js')); ?>"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script>
 $(function() {
