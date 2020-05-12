@@ -14,7 +14,7 @@ $many=[];
 <head>
   <meta charset="UTF-8">
   <title>Login</title>
-  <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+  <link rel="stylesheet" href="{{ secure_asset('css/home.css') }}">
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/7583396cb7.js" crossorigin="anonymous"></script>
 </head>
@@ -51,7 +51,7 @@ $many=[];
        <p>Name:{{$item->name}}</p>
 
        @if (Auth::check() && $user->name === $item->name)
-        <a href="delete/{{$item->id}}"><img class="trash" src="{{ asset('images/trash.jpg') }}" alt=""></a>
+        <a href="delete/{{$item->id}}"><img class="trash" src="{{ secure_asset('images/trash.jpg') }}" alt=""></a>
        @endif
 
        <p>Title:{{$item->title}}</p>
@@ -86,7 +86,7 @@ $many=[];
 
       @if($item->name !== "deleted" && in_array($item->id, $match))
 
-       <img src="{{ asset($paths[0]) }}" alt="" width="90%" height="300px" class="{{$id}}">
+       <img src="{{ secure_asset($paths[0]) }}" alt="" width="90%" height="300px" class="{{$id}}">
 
        <p><span class="sheets">1</span><?php echo "/" . $num?></p>
        
@@ -157,7 +157,7 @@ $many=[];
   </form>
 </div>
 
-<script src="{{ asset('js/home.js') }}"></script>
+<script src="{{ secure_asset('js/home.js') }}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script>
 $(function() {

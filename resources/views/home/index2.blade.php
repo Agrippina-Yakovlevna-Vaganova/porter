@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
   <title>Comment</title>
-  <link rel="stylesheet" href="{{ asset('/css/comment.css') }}" >
+  <link rel="stylesheet" href="{{ secure_asset('/css/comment.css') }}" >
 </head>
 <body>
   <div class="comment">
