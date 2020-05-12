@@ -3,7 +3,7 @@ font-family: Monotype Corsiva;
 background-image:url("mountain.jpg");
 background-repeat: no-repeat;
 background-attachment: fixed;
-background-color: rgba(255,255,255,0.9);
+background-color: rgba(255,255,255,0.6);
 background-blend-mode:lighten;
 background-size:100% 100%;
 }
