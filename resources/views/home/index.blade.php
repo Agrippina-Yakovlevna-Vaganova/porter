@@ -1,6 +1,6 @@
 <?php
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require('good_function.php');
@@ -55,7 +55,7 @@ $many=[];
       <a href="http://192.168.33.10:8000/home/favorite/{{$user->id}}">My favorite</a>
      </div>
     @endif
-
+  
     <ul>
      @error('title')
       <li>{{$message}}</li>
@@ -81,10 +81,10 @@ $many=[];
        @endif
 
        <p>Title:{{$item->title}}</p>
-
+       
        @isset($user->id)
-        <i class="far fa-thumbs-up fa-2x <?php if(isGood($user->id, $item->id)){ echo 'clicked';} ?>" id="{{$item->id}}"></i>
-          <span><?php echo count(getGood($item->id)); ?></span>
+        <i class="far fa-thumbs-up fa-2x <?php if(isGood($user->id, $item->id)){ echo 'clicked';}; ?>" id="{{$item->id}}"></i>
+          <span><?php if(getGood($item->id) === null){echo "0";}else{echo count(getGood($item->id));}; ?></span>
        @endisset
 
       @endif
@@ -93,18 +93,24 @@ $many=[];
       
       try{
        $id = $item->id;
+
        $idsimage = App\Post::find($id)->images;
+
        $paths = [];
        
        foreach ($idsimage as $image){
-        $A = $image->path;
-        array_push($paths, $A);
-       };
+         $A = $image->path;
+         array_push($paths, $A);
+       }
 
        $num = count($paths);
+
        $paths = str_replace('public/', 'storage/', $paths);
+
        array_push($many, $paths);
+
        $tocomment = App\Post::find($id)->comments;
+
       }catch(Exception $e){
         echo "予期せぬエラーが発生しました。";
       };
@@ -125,7 +131,7 @@ $many=[];
        
        @if(Auth::check())
         <div class="addcomment"> 
-         <a href="http://192.168.33.10:8000/comment/<?php echo $user->name . "/" . $item->id ?>">comment</a>
+         <a href="http://192.168.33.10:8000/comment/<?php echo $user->name . "/" . $item->id;  ?>">comment</a>
         </div>
        @endif
 

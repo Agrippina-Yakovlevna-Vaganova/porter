@@ -55,7 +55,7 @@ $many=[];
       <a href="http://192.168.33.10:8000/home/favorite/<?php echo e($user->id); ?>">My favorite</a>
      </div>
     <?php endif; ?>
-
+  
     <ul>
      <?php $__errorArgs = ['title'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -95,10 +95,10 @@ unset($__errorArgs, $__bag); ?>
        <?php endif; ?>
 
        <p>Title:<?php echo e($item->title); ?></p>
-
+       
        <?php if(isset($user->id)): ?>
-        <i class="far fa-thumbs-up fa-2x <?php if(isGood($user->id, $item->id)){ echo 'clicked';} ?>" id="<?php echo e($item->id); ?>"></i>
-          <span><?php echo count(getGood($item->id)); ?></span>
+        <i class="far fa-thumbs-up fa-2x <?php if(isGood($user->id, $item->id)){ echo 'clicked';}; ?>" id="<?php echo e($item->id); ?>"></i>
+          <span><?php if(getGood($item->id) === null){echo "0";}else{echo count(getGood($item->id));}; ?></span>
        <?php endif; ?>
 
       <?php endif; ?>
@@ -107,18 +107,24 @@ unset($__errorArgs, $__bag); ?>
       
       try{
        $id = $item->id;
+
        $idsimage = App\Post::find($id)->images;
+
        $paths = [];
        
        foreach ($idsimage as $image){
-        $A = $image->path;
-        array_push($paths, $A);
-       };
+         $A = $image->path;
+         array_push($paths, $A);
+       }
 
        $num = count($paths);
+
        $paths = str_replace('public/', 'storage/', $paths);
+
        array_push($many, $paths);
+
        $tocomment = App\Post::find($id)->comments;
+
       }catch(Exception $e){
         echo "予期せぬエラーが発生しました。";
       };
@@ -139,7 +145,7 @@ unset($__errorArgs, $__bag); ?>
        
        <?php if(Auth::check()): ?>
         <div class="addcomment"> 
-         <a href="http://192.168.33.10:8000/comment/<?php echo $user->name . "/" . $item->id ?>">comment</a>
+         <a href="http://192.168.33.10:8000/comment/<?php echo $user->name . "/" . $item->id;  ?>">comment</a>
         </div>
        <?php endif; ?>
 

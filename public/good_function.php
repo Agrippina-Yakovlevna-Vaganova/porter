@@ -3,10 +3,10 @@
 
 function getPostData($p_id){
 	try{
-    $dbh = new mysqli("localhost", "layman", "Bossmanbig(123)", "portfolio");
-		$sql = 'SELECT * FROM posts WHERE id = ?'; 
+    $dbh = new PDO('pgsql:dbname=portfolio host=localhost port=5432', 'postgres', 'Bossmanbig(123)');
+		$sql = 'SELECT * FROM posts WHERE id = :p_id'; 
     $stmt = $dbh->prepare($sql);
-    $stmt->bind_param('i', $p_id); 
+    $stmt->bindParam(':p_id', $p_id); 
     $stmt->execute();
     
 		if($stmt){
@@ -24,13 +24,12 @@ function getPostData($p_id){
 function getGood($p_id){
 
   try {
-       $dbh = new mysqli("localhost", "layman", "Bossmanbig(123)", "portfolio");
-       $sql = 'SELECT * FROM goods WHERE post_id = ?';
+       $dbh = new PDO('pgsql:dbname=portfolio host=localhost port=5432', 'postgres', 'Bossmanbig(123)');
+       $sql = 'SELECT * FROM goods WHERE post_id = :p_id';
        $stmt = $dbh->prepare($sql);
-       $stmt->bind_param('i', $p_id);
+       $stmt->bindParam(':p_id', $p_id);
        $stmt->execute();
-       $result = $stmt->get_result();
-       return $result->fetch_all();
+       return $stmt->fetchAll();
        
     } catch (Exception $e) {
       ini_set('error_log', '/var/log/error.log');
@@ -40,17 +39,16 @@ function getGood($p_id){
 
 
 function isGood($u_id, $p_id){
-
   try {
-       $dbh = new mysqli("localhost", "layman", "Bossmanbig(123)", "portfolio");
-		   $sql = 'SELECT * FROM goods WHERE post_id = ? AND user_id = ?';
+       $dbh = new PDO('pgsql:dbname=portfolio host=localhost port=5432', 'postgres', 'Bossmanbig(123)');
+		   $sql = 'SELECT * FROM goods WHERE post_id = :p_id AND user_id = :u_id';
        $stmt = $dbh->prepare($sql);
-	     $stmt->bind_param('ii', $p_id, $u_id);
+       $stmt->bindParam(':p_id', $p_id);
+       $stmt->bindParam(':u_id', $u_id);
        $stmt->execute();
-       $result = $stmt->get_result();
-       $resultCount = count($result->fetch_all());
+       $resultCount = Count($stmt->fetchAll());
        
-       if($resultCount > 0){
+       if(!empty($resultCount)){
         return true;
        }else{
         return false;  
