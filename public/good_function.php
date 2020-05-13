@@ -1,7 +1,7 @@
 <?php
 
-
 function getPostData($p_id){
+
 	try{
     $dbh = new PDO('pgsql:dbname=portfolio host=127.0.0.1 port=5432', 'postgres', 'Bossmanbig123');
 		$sql = 'SELECT * FROM posts WHERE id = :p_id'; 
@@ -57,6 +57,5 @@ function isGood($u_id, $p_id){
       ini_set('error_log', '/var/log/error.log');
       error_log('エラー発生:'.$e->getMessage());
 }
-
 
 }

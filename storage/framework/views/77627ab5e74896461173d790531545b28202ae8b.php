@@ -1,14 +1,13 @@
 <?php
-
 error_reporting(E_ALL);
-
 require('good_function.php');
+$many=[];
+
 if(Auth::check()){
   $userid = $user->id;
 }else{
   $userid = "";
 }
-$many=[];
 ?>
 
 <!DOCTYPE html>
@@ -97,7 +96,7 @@ unset($__errorArgs, $__bag); ?>
        
        <?php if(isset($user->id)): ?>
         <i class="far fa-thumbs-up fa-2x <?php if(isGood($user->id, $item->id)){ echo 'clicked';}; ?>" id="<?php echo e($item->id); ?>"></i>
-          <span><?php if(getGood($item->id) === null){echo "0";}else{echo count(getGood($item->id));}; ?></span>
+        <span><?php if(getGood($item->id) === null){echo "0";}else{echo count(getGood($item->id));}; ?></span>
        <?php endif; ?>
 
       <?php endif; ?>
@@ -201,7 +200,7 @@ unset($__errorArgs, $__bag); ?>
 </div>
 
 <script src="<?php echo e(asset('js/home.js')); ?>"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 $(function() {
   //多重送信
