@@ -59,7 +59,7 @@ class HomeController extends Controller
           'comment' => $comment,
        ];
 
-       return view('home.index', $material);
+       return view('home.index1', $material);
     }
 
 

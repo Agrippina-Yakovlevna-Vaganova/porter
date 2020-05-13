@@ -3,9 +3,7 @@
 
 function getPostData($p_id){
 	try{
-    $url = parse_url(getenv('DATABASE_URL'));
-    $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1));
-    $pdo = new PDO($dsn, $url['user'], $url['pass']);
+    $dbh = new PDO('pgsql:dbname=portfolio host=127.0.0.1 port=5432', 'postgres', 'Bossmanbig123');
 		$sql = 'SELECT * FROM posts WHERE id = :p_id'; 
     $stmt = $dbh->prepare($sql);
     $stmt->bindParam(':p_id', $p_id); 
@@ -26,9 +24,7 @@ function getPostData($p_id){
 function getGood($p_id){
 
   try {
-       $url = parse_url(getenv('DATABASE_URL'));
-       $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1));
-       $pdo = new PDO($dsn, $url['user'], $url['pass']);
+       $dbh = new PDO('pgsql:dbname=portfolio host=127.0.0.1 port=5432', 'postgres', 'Bossmanbig123');
        $sql = 'SELECT * FROM goods WHERE post_id = :p_id';
        $stmt = $dbh->prepare($sql);
        $stmt->bindParam(':p_id', $p_id);
@@ -44,9 +40,7 @@ function getGood($p_id){
 
 function isGood($u_id, $p_id){
   try {
-       $url = parse_url(getenv('DATABASE_URL'));
-       $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1));
-       $pdo = new PDO($dsn, $url['user'], $url['pass']);
+       $dbh = new PDO('pgsql:dbname=portfolio host=127.0.0.1 port=5432', 'postgres', 'Bossmanbig123');
 		   $sql = 'SELECT * FROM goods WHERE post_id = :p_id AND user_id = :u_id';
        $stmt = $dbh->prepare($sql);
        $stmt->bindParam(':p_id', $p_id);
