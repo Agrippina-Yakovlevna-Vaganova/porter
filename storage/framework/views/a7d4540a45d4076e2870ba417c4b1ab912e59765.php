@@ -51,7 +51,7 @@ $many=[];
      </div>
 
      <div class="favorite">
-      <a href="http://192.168.33.10:8000/home/favorite/<?php echo e($user->id); ?>">My favorite</a>
+      <a href="http://por-por-poppo.herokuapp.com/home/favorite/<?php echo e($user->id); ?>">My favorite</a>
      </div>
     <?php endif; ?>
   
@@ -144,7 +144,7 @@ unset($__errorArgs, $__bag); ?>
        
        <?php if(Auth::check()): ?>
         <div class="addcomment"> 
-         <a href="http://192.168.33.10:8000/comment/<?php echo $user->name . "/" . $item->id;  ?>">comment</a>
+         <a href="http://por-por-poppo.herokuapp.com/comment/<?php echo $user->name . "/" . $item->id;  ?>">comment</a>
         </div>
        <?php endif; ?>
 

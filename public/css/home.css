@@ -132,7 +132,7 @@ img{
   -webkit-user-select: none;
   -ms-user-select: none;
 }
-.contents > ul > li > p >span{
+.contents > ul > li > p > span{
   width:30px;
   -moz-user-select: none;
   -webkit-user-select: none;
@@ -269,7 +269,7 @@ img{
 display:none;
 }
 
-#form_div > form{
+#form_div > form {
 overflow-y:scroll;
 height:70%;
 }
@@ -297,11 +297,11 @@ height:70%;
   color:rgb(214, 135, 81);
 }
 
-#form_div form:nth-of-type(1) > li {
+#form_div form:nth-of-type(1) > ul > li {
   margin: 2px 0 2px 0;
   font-weight: bold;
   font-size:19px;
-  color:rgb(214, 135, 81);;
+  color:rgb(214, 135, 81);
 }
 #form_div form:nth-of-type(1) > input{
   margin-bottom:10px;
@@ -324,6 +324,9 @@ outline:none;
   font-weight:bold;
   color:rgb(184, 109, 60);
   opacity:0.5;
+}
+#input-file{
+  width:150px;
 }
 .file_button{
   width:150px;
@@ -397,9 +400,9 @@ outline:none;
   width:90%;
   margin-top:10px;
   margin:10px auto 0 auto;
-  border: solid 2px;
-  border-radius:30px;
-  border-color:#9c6b2b;
+  border:3px solid;
+  border-radius:10px;
+  border-color:rgb(189, 116, 49);
 }
 .comment > ul > li  p:nth-of-type(1){
 margin:10px 0 0 0;

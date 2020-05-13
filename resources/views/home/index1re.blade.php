@@ -1,14 +1,13 @@
 <?php
-
 error_reporting(E_ALL);
-
 require('good_function.php');
+$many=[];
+
 if(Auth::check()){
   $userid = $user->id;
 }else{
   $userid = "";
 }
-$many=[];
 ?>
 
 <!DOCTYPE html>
@@ -174,14 +173,14 @@ $many=[];
         <div class="file_button">ファイルを選択する</div>
        </div>
 
-       <p>20枚まで投稿できます。</p>
+
        <ul id='filenames'></ul>
 
       <p>Comment</p>
        <textarea type="text" name="text" value="{{old('text')}}"></textarea>
     
      <div class="postbutton_frame">
-      <input type="submit" name="imagepost" value="Submit" class="postsubmit">
+      <input type="submit" name="imagepost" value="Submit" class="postsubmit" >
      </div> 
   </form>
 </div>
@@ -190,6 +189,11 @@ $many=[];
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script>
 $(function() {
+  //多重送信
+  $('.postsubmit').click(function() {
+    $(this).prop('disabled', true);
+    $("form").submit();
+  })
   //image表示
   var many = (<?= json_encode($many) ?>);
 

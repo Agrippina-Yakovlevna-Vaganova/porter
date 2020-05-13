@@ -13,8 +13,18 @@
      <textarea name="text" id="" cols="30" rows="10"></textarea>
      <input type="hidden" name="name" value="{{$name}}">
      <input type="hidden" name="postid" value="{{$id}}">
-     <input type="submit" value="Submit">
+     <input class="sb" type="submit" value="Submit">
    </form>
   </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>
+    $(function() {
+  //多重送信
+  $('.sb').click(function() {
+    $(this).prop('disabled', true);
+    $("form").submit();
+  });
+})
+  </script>
 </body>
 </html>  

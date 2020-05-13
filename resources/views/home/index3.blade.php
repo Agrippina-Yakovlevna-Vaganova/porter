@@ -101,7 +101,7 @@ $many=[];
        
        @if(Auth::check())
         <div class="addcomment"> 
-        <a href="http://192.168.33.10:8000/comment/<?php echo $user->name . "/" . $item->id ?>">comment</a>
+        <a href="http://por-por-poppo.herokuapp.com/comment/<?php echo $user->name . "/" . $item->id ?>">comment</a>
         </div>
        @endif
 

@@ -1,10 +1,12 @@
+//✖ボタン
 document.getElementById('batu').addEventListener('click',() => { 
   document.getElementById('form_div').classList.add("visible");
 });
 
+//Postボタン
 if(document.getElementsByClassName('postbutton')[0]){
-document.getElementsByClassName('postbutton')[0].addEventListener('click',() => { 
-  document.getElementById('form_div').classList.remove("visible");
+   document.getElementsByClassName('postbutton')[0].addEventListener('click',() => { 
+   document.getElementById('form_div').classList.remove("visible");
 });
 }
 
@@ -18,13 +20,17 @@ div_file.addEventListener('click', ()=> {
   return false;
 })
 
+
 input_file.onchange = function() {
-  //ファイル取得
+
+ //ファイル取得
  var file = input_file.files;
  var list = "";
+
  for(var i=0; i<file.length; i++){
    list += '<li>' + file[i].name + '</li>'
  }
+
  document.getElementById('filenames').innerHTML = list;
 };
 
