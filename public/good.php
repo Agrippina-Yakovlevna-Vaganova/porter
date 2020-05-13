@@ -8,7 +8,6 @@ if(isset($_POST['post_id'])){
    $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1));
 
    try{
-     var_dump($url);
      $pdo = new PDO($dsn, $url['user'], $url['pass']);
      $sql = 'SELECT * FROM goods WHERE post_id = :p_id AND user_id = :u_id';
      $stmt = $dbh->prepare($sql);
