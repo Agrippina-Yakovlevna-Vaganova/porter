@@ -119,8 +119,8 @@ if(Auth::check()){
        <p><span class="sheets">1</span><?php echo "/" . $num?></p>
 
        <div class="nextprev">
-        <button type="button" class="{{$id}} prev"><<</button>
-        <button type="button" class="{{$id}} next">>></button>
+        <button type="button" class="{{$id}} prev">&lt;&lt;</button>
+        <button type="button" class="{{$id}} next">&gt;&gt;</button>
        </div>
       
        @isset($item->text)
