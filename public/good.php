@@ -3,7 +3,7 @@ require('good_function.php');
 if(isset($_POST['post_id'])){
    $p_id = $_POST['post_id'];
    $u_id = $_POST['user_id'];
-   $url = parse_url(getenv('DATABASE_URL'));
+   $url = parse_url(getenv("DATABASE_URL"));
    $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1));
 
    try{
