@@ -20,7 +20,7 @@ $many=[];
 </head>
 <body>
   
- 
+<div class="wrap">
 <div class="container">
  
   <div class="aside">
@@ -155,6 +155,7 @@ $many=[];
       <input type="submit" name="imagepost" value="送信する" class="postsubmit">
      </div> 
   </form>
+</div>
 </div>
 
 <script src="{{ asset('js/home.js') }}"></script>

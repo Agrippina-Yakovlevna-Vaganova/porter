@@ -13,7 +13,7 @@ if(Auth::check()){
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1">
   <title>Login</title>
   <link rel="stylesheet" href="{{ asset('css/home.css') }}">
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
@@ -21,7 +21,8 @@ if(Auth::check()){
 </head>
 <body>
   
- 
+<div class="wrap">
+
 <div class="container">
  
   <div class="aside">
@@ -144,7 +145,7 @@ if(Auth::check()){
          </li>
          @endforeach
         </ul>
-        <button type="button" class="more_btn">more </button>
+        <button type="button" class="more_btn">more</button>
         <button type="button" class="close_btn">close</button>
        </div>
        @endif
@@ -185,6 +186,7 @@ if(Auth::check()){
   </form>
 </div>
 
+</div>
 <script src="{{ asset('js/home.js') }}"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
