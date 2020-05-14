@@ -3,7 +3,7 @@
 
 function getPostData($p_id){
 	try{
-      $url = parse_url(getenv('DATABASE_URL'));
+      $url = parse_url(getenv());
       $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1));
       $pdo = new PDO($dsn, $url['user'], $url['pass']);
 		  $sql = 'SELECT * FROM posts WHERE id = :p_id'; 
@@ -25,7 +25,7 @@ function getPostData($p_id){
 
 function getGood($p_id){
   try {
-       $url = parse_url(getenv('DATABASE_URL'));
+       $url = parse_url(getenv());
        $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1));
        $pdo = new PDO($dsn, $url['user'], $url['pass']);
        $sql = 'SELECT * FROM goods WHERE post_id = :p_id';
@@ -43,7 +43,7 @@ function getGood($p_id){
 
 function isGood($u_id, $p_id){
   try {
-       $url = parse_url(getenv('DATABASE_URL'));
+       $url = parse_url(getenv());
        $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1));
        $pdo = new PDO($dsn, $url['user'], $url['pass']); 
 		   $sql = 'SELECT * FROM goods WHERE post_id = :p_id AND user_id = :u_id';
