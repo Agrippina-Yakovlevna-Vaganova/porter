@@ -7,7 +7,7 @@ function getPostData($p_id){
       $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1));
       $pdo = new PDO($dsn, $url['user'], $url['pass']);
 		  $sql = 'SELECT * FROM posts WHERE id = :p_id'; 
-      $stmt = $dbh->prepare($sql);
+      $stmt = $pdo->prepare($sql);
       $stmt->bindParam(':p_id', $p_id); 
       $stmt->execute();
     
@@ -29,7 +29,7 @@ function getGood($p_id){
        $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1));
        $pdo = new PDO($dsn, $url['user'], $url['pass']);
        $sql = 'SELECT * FROM goods WHERE post_id = :p_id';
-       $stmt = $dbh->prepare($sql);
+       $stmt = $pdo->prepare($sql);
        $stmt->bindParam(':p_id', $p_id);
        $stmt->execute();
        return $stmt->fetchAll();
@@ -47,7 +47,7 @@ function isGood($u_id, $p_id){
        $dsn = sprintf('pgsql:host=%s;dbname=%s', $url['host'], substr($url['path'], 1));
        $pdo = new PDO($dsn, $url['user'], $url['pass']); 
 		   $sql = 'SELECT * FROM goods WHERE post_id = :p_id AND user_id = :u_id';
-       $stmt = $dbh->prepare($sql);
+       $stmt = $pdo->prepare($sql);
        $stmt->bindParam(':p_id', $p_id);
        $stmt->bindParam(':u_id', $u_id);
        $stmt->execute();

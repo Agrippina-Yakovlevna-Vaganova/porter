@@ -9,21 +9,21 @@ if(isset($_POST['post_id'])){
    try{
      $pdo = new PDO($dsn, $url['user'], $url['pass']);
      $sql = 'SELECT * FROM goods WHERE post_id = :p_id AND user_id = :u_id';
-     $stmt = $dbh->prepare($sql);
+     $stmt = $pdo->prepare($sql);
      $stmt->bindParam(':p_id', $p_id);
      $stmt->bindParam(':u_id', $u_id);
      $stmt->execute();
 
    if(Count($stmt->fetchAll())){
      $sql = 'DELETE FROM goods WHERE post_id = :p_id AND user_id = :u_id';
-     $stmt = $dbh->prepare($sql);
+     $stmt = $pdo->prepare($sql);
      $stmt->bindParam(':p_id', $p_id);
      $stmt->bindParam(':u_id', $u_id);
      $stmt->execute();
      echo count(getGood($p_id));
   }else{
      $sql = 'INSERT INTO goods (post_id, user_id) VALUES ( :p_id, :u_id)';
-     $stmt = $dbh->prepare($sql);
+     $stmt = $pdo->prepare($sql);
      $stmt->bindParam(':p_id', $p_id);
      $stmt->bindParam(':u_id', $u_id);
      $stmt->execute();
