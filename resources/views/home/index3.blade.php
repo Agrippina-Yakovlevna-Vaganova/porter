@@ -19,8 +19,9 @@ $many=[];
   <script src="https://kit.fontawesome.com/7583396cb7.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  
- 
+
+<div class="wrap">  
+
 <div class="container">
  
   <div class="aside">
@@ -155,6 +156,8 @@ $many=[];
       <input type="submit" name="imagepost" value="送信する" class="postsubmit">
      </div> 
   </form>
+</div>
+
 </div>
 
 <script src="{{ secure_asset('js/home.js') }}"></script>

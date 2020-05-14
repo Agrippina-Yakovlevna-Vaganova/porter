@@ -8,6 +8,10 @@ background-blend-mode:lighten;
 background-size:100% 100%;
 }
 
+#app{
+  background:rgb(255, 255, 255,0.6);
+}
+
 .container{
   color:rgb(179, 146, 97);
   font-size:22px;
