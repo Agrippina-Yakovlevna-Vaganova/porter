@@ -57,10 +57,7 @@ $many=[];
 
        <p>Title:{{$item->title}}</p>
 
-       @if(isset($user->id))
-        <i class="far fa-thumbs-up fa-2x <?php if(isGood($user->id, $item->id)){ echo 'clicked';} ?>" id="{{$item->id}}"></i>
-        <span><?php echo count(getGood($item->id)); ?></span>
-       @endif
+
 
       @endif
 
@@ -210,14 +207,13 @@ $(function() {
     };
   });
 
-
-  //いいね
+   //いいね
   $('.far').on('click',function(e){
       e.stopPropagation();
       var kore = $(this);
       var postid = $(this).attr('id');
       <?php if($userid){
-       echo "var userid = " . $userid  . ";";
+        echo "var userid = " . $userid  . ";";
       }?>
   $.ajax({
      url: 'good.php',
@@ -232,7 +228,7 @@ $(function() {
         $(kore).toggleClass('clicked');
 
      }).fail(function(msg) {
-        console.log('failどすえ'); 
+        console.log('fail'); 
   });
  
 

@@ -71,14 +71,13 @@ unset($__errorArgs, $__bag); ?>
 
        <p>Title:<?php echo e($item->title); ?></p>
 
-       <?php if(isset($user->id)): ?>
-        <i class="far fa-thumbs-up fa-2x <?php if(isGood($user->id, $item->id)){ echo 'clicked';} ?>" id="<?php echo e($item->id); ?>"></i>
-        <span><?php if(getGood($item->id) === null){echo "0";}else{echo count(getGood($item->id));}; ?></span>
-       <?php endif; ?>
+
 
       <?php endif; ?>
 
       <?php 
+
+      try{
        $paths = [];
 
        $id = $item->id;
@@ -97,6 +96,9 @@ unset($__errorArgs, $__bag); ?>
        array_push($many, $paths);
 
        $tocomment = App\Post::find($id)->comments;
+      }catch(Exception $e){
+        echo "予期せぬエラーが発生しました。";
+      };
       ?> 
 
       <?php if($item->name !== "deleted" && in_array($item->id, $match)): ?>
@@ -141,36 +143,6 @@ unset($__errorArgs, $__bag); ?>
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
    </ul>
  </div>
-
-</div>
-
-
-<div id="form_div" class="visible">
-  <form action="/home" method="post" enctype="multipart/form-data">
-      <?php echo csrf_field(); ?>
-      <p id="batu">✖</p>
-      
-      <p>Title</p>
-       <input type="text" name="title" value="<?php echo e(old('title')); ?>">
-
-      <p>Photo</p>
-
-       <div id="input-file">
-        <input type="file" id="01" name="files[][image]" class="file" multiple>
-        <div class="file_button">ファイルを選択する</div>
-       </div>
-
-       <p>20枚まで投降できます。</p>
-       <ul id='filenames'></ul>
-
-      <p>Comment</p>
-       <textarea type="text" name="text" value="<?php echo e(old('text')); ?>"></textarea>
-    
-     <div class="postbutton_frame">
-      <input type="submit" name="imagepost" value="送信する" class="postsubmit">
-     </div> 
-  </form>
-</div>
 </div>
 
 <script src="<?php echo e(asset('js/home.js')); ?>"></script>
@@ -230,14 +202,15 @@ $(function() {
       var kore = $(this);
       var postid = $(this).attr('id');
       <?php if($userid){
-       echo "var userid = " . $userid  . ";";
+        echo "var userid = " . $userid  . ";";
       }?>
   $.ajax({
      url: 'good.php',
      type: 'POST',
      data:{
        post_id: postid,
-       user_id: userid
+       user_id: userid,
+       _token: '<?php echo e(csrf_token()); ?>' 
        }
      }).done(function(data){
         //いいね総数
@@ -245,12 +218,11 @@ $(function() {
         $(kore).toggleClass('clicked');
 
      }).fail(function(msg) {
-        console.log('failどすえ'); 
+        console.log('fail'); 
   });
  
 
  });
-
 
   //コメント
   var defaultNum = 3;

@@ -32,3 +32,6 @@ Route::get('comment/{name?}/{id?}','HomeController@comment');
 Route::post('comment/{name?}/{id?}','HomeController@commentpost');
 
 Route::get('/home/favorite/{id?}', 'HomeController@favorite');
+
+Route::post('/home/favorite/{id?}', 'HomeController@empty');
+
