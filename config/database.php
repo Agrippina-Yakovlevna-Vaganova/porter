@@ -67,7 +67,6 @@ return [
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => $url["host"],
-            'port' => '5432',
             'database' => substr($url["path"], 1),
             'username' => $url["user"],
             'password' => $url["pass"],

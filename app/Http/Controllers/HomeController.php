@@ -150,8 +150,4 @@ class HomeController extends Controller
       return view('home.index3', $material);
    }
 
-
-   public function empty(){
-      return;
-   }
    }
