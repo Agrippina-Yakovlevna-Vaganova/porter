@@ -1,12 +1,13 @@
 <?php
 ini_set('display_errors', 1);
 require('good_function.php');
+$many=[];
+
 if(Auth::check()){
   $userid = $user->id;
 }else{
   $userid = "";
 }
-$many=[];
 ?>
 
 <!DOCTYPE html>
@@ -56,10 +57,10 @@ $many=[];
 
        <p>Title:{{$item->title}}</p>
 
-       @if(isset($user->id))
+       @isset($user->id)
         <i class="far fa-thumbs-up fa-2x <?php if(isGood($user->id, $item->id)){ echo 'clicked';} ?>" id="{{$item->id}}"></i>
-        <span><?php echo count(getGood($item->id)); ?></span>
-       @endif
+        <span><?php if(getGood($item->id) === null){echo "0";}else{echo count(getGood($item->id));}; ?></span>
+       @endisset
 
       @endif
 
@@ -159,7 +160,7 @@ $many=[];
 </div>
 
 <script src="{{ asset('js/home.js') }}"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 $(function() {
   var many = (<?= json_encode($many) ?>);

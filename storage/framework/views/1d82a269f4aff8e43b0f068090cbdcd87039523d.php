@@ -10,7 +10,7 @@
     <title><?php echo e(config('app.name', 'Laravel')); ?></title>
 
     <!-- Scripts -->
-    <script src="<?php echo e(secure_asset('js/app.js')); ?>" defer></script>
+    <script src="<?php echo e(asset('js/app.js')); ?>" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -19,7 +19,7 @@
     <!-- Styles -->
     <?php echo $__env->yieldContent('css'); ?>
     <!-- <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet"> -->
-    <link href="<?php echo e(secure_asset('css/original.css')); ?>" rel="stylesheet"> 
+    <link href="<?php echo e(asset('css/original.css')); ?>" rel="stylesheet"> 
 </head>
 <body>
     <div id="app">

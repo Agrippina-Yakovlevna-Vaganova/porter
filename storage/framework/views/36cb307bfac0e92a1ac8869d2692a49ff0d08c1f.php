@@ -1,12 +1,13 @@
 <?php
 ini_set('display_errors', 1);
 require('good_function.php');
+$many=[];
+
 if(Auth::check()){
   $userid = $user->id;
 }else{
   $userid = "";
 }
-$many=[];
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +21,7 @@ $many=[];
 </head>
 <body>
   
- 
+<div class="wrap">
 <div class="container">
  
   <div class="aside">
@@ -72,7 +73,7 @@ unset($__errorArgs, $__bag); ?>
 
        <?php if(isset($user->id)): ?>
         <i class="far fa-thumbs-up fa-2x <?php if(isGood($user->id, $item->id)){ echo 'clicked';} ?>" id="<?php echo e($item->id); ?>"></i>
-        <span><?php echo count(getGood($item->id)); ?></span>
+        <span><?php if(getGood($item->id) === null){echo "0";}else{echo count(getGood($item->id));}; ?></span>
        <?php endif; ?>
 
       <?php endif; ?>
@@ -170,9 +171,10 @@ unset($__errorArgs, $__bag); ?>
      </div> 
   </form>
 </div>
+</div>
 
 <script src="<?php echo e(asset('js/home.js')); ?>"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 $(function() {
   var many = (<?= json_encode($many) ?>);

@@ -161,7 +161,7 @@ $many=[];
 </div>
 
 <script src="{{ secure_asset('js/home.js') }}"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 $(function() {
   var many = (<?= json_encode($many) ?>);
