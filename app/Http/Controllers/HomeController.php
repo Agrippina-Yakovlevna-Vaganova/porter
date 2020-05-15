@@ -59,7 +59,7 @@ class HomeController extends Controller
           'comment' => $comment,
        ];
 
-       return view('home.index1re', $material);
+       return view('home.index1', $material);
     }
 
 
@@ -105,7 +105,7 @@ class HomeController extends Controller
          'id' => $id,
          'name' => $name,
       ];
-      return view('home.index2re', $arg);
+      return view('home.index2', $arg);
    }
 
    public function commentpost(Request $request){
@@ -147,7 +147,7 @@ class HomeController extends Controller
          'match' => $match,
       ];
        
-      return view('home.index3re', $material);
+      return view('home.index3', $material);
    }
 
 
