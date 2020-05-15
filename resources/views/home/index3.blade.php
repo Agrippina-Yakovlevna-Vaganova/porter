@@ -1,5 +1,5 @@
 <?php
-// ini_set('display_errors', 1);
+ini_set('display_errors', 1);
 require('good_function.php');
 if(Auth::check()){
   $userid = $user->id;
@@ -56,9 +56,6 @@ $many=[];
        @endif
 
        <p>Title:{{$item->title}}</p>
-
-
-
       @endif
 
       <?php 
