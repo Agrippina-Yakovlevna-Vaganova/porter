@@ -19,6 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/welcome', 'HomeController@welcome'); 
+
 Route::get('/home', 'HomeController@get');  
 
 Route::post('/home', 'HomeController@post');

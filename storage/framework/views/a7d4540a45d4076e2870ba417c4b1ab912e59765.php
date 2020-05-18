@@ -13,14 +13,15 @@ if(Auth::check()){
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1">
   <title>Login</title>
   <link rel="stylesheet" href="<?php echo e(secure_asset('css/home.css')); ?>">
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/7583396cb7.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  
+
+<div class="wrap">
  
 <div class="container">
  
@@ -133,8 +134,8 @@ unset($__errorArgs, $__bag); ?>
        <p><span class="sheets">1</span><?php echo "/" . $num?></p>
 
        <div class="nextprev">
-        <button type="button" class="<?php echo e($id); ?> prev"><<</button>
-        <button type="button" class="<?php echo e($id); ?> next">>></button>
+        <button type="button" class="<?php echo e($id); ?> prev">&lt;&lt;</button>
+        <button type="button" class="<?php echo e($id); ?> next">&gt;&gt;</button>
        </div>
       
        <?php if(isset($item->text)): ?>
@@ -196,6 +197,8 @@ unset($__errorArgs, $__bag); ?>
       <input type="submit" name="imagepost" value="Submit" class="postsubmit" onclick="this.disabled = true;">
      </div> 
   </form>
+</div>
+
 </div>
 
 <script src="<?php echo e(secure_asset('js/home.js')); ?>"></script>
