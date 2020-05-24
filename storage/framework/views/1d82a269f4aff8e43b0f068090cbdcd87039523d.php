@@ -19,7 +19,7 @@
     <!-- Styles -->
     <?php echo $__env->yieldContent('css'); ?>
     <!-- <link href="<?php echo e(asset('css/app.css')); ?>" rel="stylesheet"> -->
-    <link href="<?php echo e(secure_asset('css/original.css')); ?>" rel="stylesheet"> 
+    <link href="<?php echo e(asset('css/original.css')); ?>" rel="stylesheet"> 
 </head>
 <body>
     <div id="app">

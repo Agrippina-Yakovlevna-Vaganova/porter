@@ -19,7 +19,7 @@
     <!-- Styles -->
     @yield('css')
     <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
-    <link href="{{ secure_asset('css/original.css') }}" rel="stylesheet"> 
+    <link href="{{ asset('css/original.css') }}" rel="stylesheet"> 
 </head>
 <body>
     <div id="app">
